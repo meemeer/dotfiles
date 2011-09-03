@@ -1,0 +1,67 @@
+defencoding utf-8
+escape ^Tt
+
+autodetach on
+startup_message off
+defscrollback 3000
+scrollback 3000
+attrcolor b ".I"
+defbce on
+
+bind F eval 'scrollback 0' 'scrollback 1000' 'echo "scrollback buffer cleared"'
+#zombie kr
+#verbose on
+nethack on
+vbell on
+bind ^G
+bind N colon 'number '
+# switch window encoding
+bind ^U eval 'encoding utf8'  'info'
+bind ^E eval 'encoding eucjp' 'info'
+# switch window encoding and changes LANG environment variable.(for b-shell)
+bind u eval 'encoding utf8'  '!!!echo "LANG=ja_JP.utf8; export LANG"'  'info'
+bind e eval 'encoding eucjp' '!!!echo "LANG=ja_JP.eucJP; export LANG"' 'info'
+
+bind j focus down
+bind k focus up
+bind t focus top
+bind b focus bottom
+bind ^J eval 'focus down' 'command -c cfocus'
+bind ^K eval 'focus up'   'command -c cfocus'
+bind ^H eval 'focus left' 'command -c cfocus'
+bind ^L eval 'focus right'   'command -c cfocus'
+bind -c cfocus ^J eval 'focus down'   'command -c cfocus'
+bind -c cfocus ^K eval 'focus up'     'command -c cfocus'
+bind -c cfocus ^H eval 'focus left'   'command -c cfocus'
+bind -c cfocus ^L eval 'focus right'     'command -c cfocus'
+bind W eval 'command -c swap' 'echo "swap region to: [N]ext [P]rev"'
+bind -c swap N eval 'select -' 'focus down' 'other' 'focus up'   'other' 'focus down'
+bind -c swap P eval 'select -' 'focus up'   'other' 'focus down' 'other' 'focus up'
+bind r eval 'command -c cresize'
+bind -c cresize j eval 'resize +1'  'command -c cresize'
+bind -c cresize k eval 'resize -1'  'command -c cresize'
+bind -c cresize J eval 'resize +10' 'command -c cresize'
+bind -c cresize K eval 'resize -10' 'command -c cresize'
+bind -c cresize h eval 'resize -v +1'  'command -c cresize'
+bind -c cresize l eval 'resize -v -1'  'command -c cresize'
+bind -c cresize H eval 'resize -v +10' 'command -c cresize'
+bind -c cresize L eval 'resize -v -10' 'command -c cresize'
+bind -c cresize = eval 'resize ='   'command -c cresize'
+bind -c cresize n eval 'resize min' 'command -c cresize'
+bind -c cresize x eval 'resize max' 'command -c cresize'
+# bind ^N eval 'next' 'command -c cselect'
+# bind ^P eval 'prev' 'command -c cselect'
+bind -c cselect ^N eval 'next' 'command -c cselect'
+bind -c cselect ^P eval 'prev' 'command -c cselect'
+bind w  windowlist -b
+bind ^W windowlist -b -m # sorting by most-recentry-used list.
+bindkey -m ;b stuff "g/:\015\006\002"
+bind ^] paste .
+
+term xterm
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+termcapinfo xterm 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
+windowlist title  '%{u .g}Num Flags Title%=[0-9] select the number [movement] j,C-n:Down k,C-p:Up (C-)f:PageDown (C-)b:PageUp'
+windowlist string '%{.g}%3n %{.y}%f%09=%{dg} %t %='
+caption always '%?%F%{= gW}%:%{= Kk}%?%2n%f%07=%t%='
+hardstatus alwayslastline '%m/%d %02c:%s %{= .g}%H%{-} %L=%-w%45L>%{=u g.}%n %t%{-}%+w %-17<%=%{= .y}(%l)'
