@@ -10,8 +10,10 @@ HISTFILE=$HOME/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
 
-alias vi="vim"
+#alias vi="vim"
 alias sudo="sudo "
 
 export PATH=$NODE_PATH:$PATH
 export PATH="/usr/local/bin":$PATH
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
