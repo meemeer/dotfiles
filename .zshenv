@@ -10,7 +10,7 @@ HISTFILE=$HOME/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
 
-#alias vi="vim"
+alias vi="vim"
 alias sudo="sudo "
 
 export PATH=$NODE_PATH:$PATH
