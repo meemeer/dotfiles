@@ -1,4 +1,26 @@
 set nocompatible
+filetype off
+
+set rtp+=~/.vim/vundle/
+call vundle#rc()
+
+Bundle 'Shougo/neocomplcache'
+Bundle 'Shougo/unite.vim'
+Bundle 'Shougo/vimproc'
+Bundle 'Shougo/vimshell'
+Bundle 'thinca/vim-ref'
+Bundle 'thinca/vim-quickrun'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'rails.vim'
+Bundle 'YankRing.vim'
+Bundle 'git.zip'
+Bundle 'fugitive.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'pix/vim-align'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'tpope/vim-surround'
+Bundle 'mhz/vim-matchit'
+Bundle 'mattn/zencoding-vim'
 
 filetype plugin indent on
 syntax enable
