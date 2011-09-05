@@ -29,7 +29,7 @@ set t_Co=256
 set t_Sf=[3%dm
 set t_Sb=[4%dm
 "colorscheme wombat256mod
-"colorscheme xoria256
+colorscheme xoria256
 
 set ruler
 set laststatus=2
